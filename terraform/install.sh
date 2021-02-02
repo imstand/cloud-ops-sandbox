@@ -158,7 +158,7 @@ getOrCreateBucket() {
 
 createProject() {
     # generate random id
-    project_id="cloud-ops-sandbox-$(od -N 4 -t uL -An /dev/urandom | tr -d " ")"
+    project_id="qwiklabs-gcp-01-7bd27a83095e"
     # create project
     if [[ $acct == *"google.com"* ]];
     then
@@ -178,10 +178,10 @@ createProject() {
         fi
       done
       folder_id="470827991545" # /cloud-ops-sandboxes
-      gcloud projects create "$project_id" --name="Cloud Operations Sandbox Demo" --folder="$folder_id"
+      gcloud projects create "$project_id" --name="qwiklabs-gcp-01-7bd27a83095e" --folder="$folder_id"
     else
       sendTelemetry $project_id new-sandbox-non-googler
-      gcloud projects create "$project_id" --name="Cloud Operations Sandbox Demo"
+      gcloud projects create "$project_id" --name="qwiklabs-gcp-01-7bd27a83095e"
     fi;
     # link billing account
     gcloud beta billing projects link "$project_id" --billing-account="$billing_id"
